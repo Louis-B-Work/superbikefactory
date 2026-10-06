@@ -3,6 +3,7 @@ import { deviceSizes, imageSizes } from "./src/lib/image-variants.mjs";
 
 const nextConfig: NextConfig = {
   output: "export",
+  basePath: process.env.NEXT_PUBLIC_BASE_PATH ?? "",
   trailingSlash: true,
   images: {
     // Static export has no image server, so photos are pre-rendered by scripts/optimise-images.mjs.

@@ -7,6 +7,7 @@ import { ScrollReveal } from "@/components/ScrollReveal";
 import { SmoothScroll } from "@/components/SmoothScroll";
 import { site } from "@/config/site";
 import { themeBootstrap } from "@/lib/theme";
+import { sitePathUrl } from "@/lib/deployment";
 import "lenis/dist/lenis.css";
 import "./globals.css";
 
@@ -38,7 +39,7 @@ export const metadata: Metadata = {
     siteName: site.name,
     title: `Motorbike Finance | ${site.name}`,
     description: site.description,
-    images: [{ url: "/images/hero-home.jpg", width: 2400, height: 1600 }],
+    images: [{ url: sitePathUrl("/images/hero-home.jpg", site.url), width: 2400, height: 1600 }],
   },
 };
 

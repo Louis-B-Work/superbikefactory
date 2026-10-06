@@ -4,6 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { site } from "@/config/site";
+import { publicPath } from "@/lib/deployment";
 import { CloseIcon, MenuIcon } from "./icons";
 import { QuoteCta } from "./QuoteCta";
 import { ThemeLogo } from "./ThemeLogo";
@@ -91,8 +92,7 @@ export function Header() {
             // Jump to the top first, so the reload doesn't restore the old scroll position.
             window.scrollTo({ top: 0, behavior: "instant" });
             if (pathname === "/") window.location.reload();
-            // eslint-disable-next-line @next/next/no-location-assign-relative-destination -- a full reload is the point here.
-            else window.location.href = "/";
+            else window.location.href = publicPath("/");
           }}
         >
           <ThemeLogo className="h-6 sm:h-7" preload />

@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import { publicPath } from "@/lib/deployment";
 
 /**
  * Muted, looping hero background video. React doesn't reliably server-render the `muted`
@@ -58,8 +59,8 @@ export function HeroVideo({
       style={{ objectPosition }}
     >
       {/* Browsers pick the first matching source when the page loads. 2:3 leaves headroom for mobile toolbars. */}
-      {portraitSrc && <source src={portraitSrc} type="video/mp4" media="(max-aspect-ratio: 2/3)" />}
-      <source src={src} type="video/mp4" />
+      {portraitSrc && <source src={publicPath(portraitSrc)} type="video/mp4" media="(max-aspect-ratio: 2/3)" />}
+      <source src={publicPath(src)} type="video/mp4" />
     </video>
   );
 }

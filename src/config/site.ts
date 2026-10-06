@@ -9,7 +9,7 @@
 
 export const site = {
   name: "SuperBike Factory",
-  url: "https://superbikefactory.co.uk",
+  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://superbikefactory.co.uk",
   tagline: "Superbike. Super Finance.",
   description:
     "Motorbike finance made simple. Compare deals from our panel of lenders, whatever your credit history, and get on the road sooner with SuperBike Factory.",

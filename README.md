@@ -40,6 +40,22 @@ Search the codebase for `[PLACEHOLDER` and replace every hit. That includes:
 - The privacy, cookie and complaints page copy.
 - `primaryCta.url` in `src/config/site.ts`: set it to the partner quote site. While it's empty, every "Get a quote" button shows a notice that quotes will soon be handled on a partner site. Once it's set, the buttons link straight there in a new tab.
 
+## GitHub Pages
+
+In repository **Settings > Pages**, select **GitHub Actions** as the build/deployment source. The [deployment workflow](.github/workflows/deploy-pages.yml) runs tests and lint, builds the static export (including responsive images), and deploys it on pushes to `main` or a manual workflow run.
+
+The project URL is https://louis-b-work.github.io/superbikefactory/. The workflow reads the Pages base path and URL from `actions/configure-pages`, supplying `NEXT_PUBLIC_BASE_PATH` and `NEXT_PUBLIC_SITE_URL` at build time. Next links are prefixed automatically; public assets, the logo's full-page redirect and metadata URLs use the shared deployment helpers. Local builds default to the root path and the configured production domain. A custom domain can be set in Pages settings; rebuild after changing it so paths and metadata match.
+
+For a local project-path build in PowerShell:
+
+```powershell
+$env:NEXT_PUBLIC_BASE_PATH = "/superbikefactory"
+$env:NEXT_PUBLIC_SITE_URL = "https://louis-b-work.github.io/superbikefactory"
+npm run build
+```
+
+Serve `out` mounted at `/superbikefactory/` to preview that build. Only source is committed; GitHub Actions generates and uploads `out`. GitHub Pages is static hosting, so the existing finance/compliance placeholders and partner URL still need approval before treating the site as a production launch.
+
 ## Notes
 
 - Theme: the footer's policy-link row includes a `Theme: System / Light / Dark` button that cycles through those modes. System is the default and follows live OS changes; explicit choices override the OS. The `sbf-theme` localStorage preference survives reloads and synchronizes across tabs. An early root-layout script applies it before paint; with JavaScript disabled, CSS follows the OS instead and the control is omitted. If browser storage is blocked, the current-visit theme still works and the footer explains that it could not be saved. Light sections, navigation, footer, forms and the quote dialog use semantic theme colours; photographic and deliberately dark sections keep their original palettes. Keep fixed navy text on yellow buttons and use `ThemeLogo` when adding logos to theme-aware surfaces.
