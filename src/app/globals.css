@@ -1,0 +1,470 @@
+@import "tailwindcss";
+
+/* Devices with a real hover pointer. Touch devices skip hover-reveal effects and see content by default. */
+@custom-variant can-hover (@media (hover: hover) and (pointer: fine));
+
+/* Anything inside a dark <Section tone="dark">, so shared components can restyle themselves for it. */
+@custom-variant on-dark (&:where([data-tone="dark"] *));
+
+@theme inline {
+  --color-theme-surface: var(--surface);
+  --color-theme-card: var(--surface-card);
+  --color-theme-soft: var(--surface-soft);
+  --color-theme-ink: var(--ink);
+  --color-theme-body: var(--body-text);
+  --color-theme-muted: var(--muted-text);
+  --color-theme-muted-35: var(--muted-35);
+  --color-theme-muted-40: var(--muted-40);
+  --color-theme-muted-45: var(--muted-45);
+  --color-theme-muted-50: var(--muted-50);
+  --color-theme-muted-55: var(--muted-55);
+  --color-theme-muted-60: var(--muted-60);
+  --color-theme-line: var(--line);
+  --color-theme-control-line: var(--control-line);
+  --color-theme-error: var(--error-text);
+}
+
+:root {
+  color-scheme: light;
+  --surface: #ffffff;
+  --surface-card: #ffffff;
+  --surface-soft: #fafafa;
+  --ink: #232638;
+  --body-text: #3c3c3b;
+  --muted-text: #686868;
+  --muted-35: rgb(60 60 59 / 0.35);
+  --muted-40: rgb(60 60 59 / 0.40);
+  --muted-45: rgb(60 60 59 / 0.45);
+  --muted-50: rgb(60 60 59 / 0.50);
+  --muted-55: rgb(60 60 59 / 0.55);
+  --muted-60: rgb(60 60 59 / 0.60);
+  --line: #eaeaea;
+  --control-line: #eaeaea;
+  --error-text: #e03a3a;
+  --marker: #ffdd00;
+  --word-dim: rgb(35 38 56 / 0.14);
+  --speed-line: rgb(35 38 56 / 0.055);
+  --light-logo-display: none;
+  --dark-logo-display: block;
+}
+
+/* Without script, the OS preference still themes the static export. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    color-scheme: dark;
+    --surface: #1a1c2a;
+    --surface-card: #282b3e;
+    --surface-soft: #232638;
+    --ink: #f5f6fa;
+    --body-text: #f0f1f5;
+    --muted-text: #b9bdca;
+    --muted-35: var(--muted-text);
+    --muted-40: var(--muted-text);
+    --muted-45: var(--muted-text);
+    --muted-50: var(--muted-text);
+    --muted-55: var(--muted-text);
+    --muted-60: var(--muted-text);
+    --line: #404456;
+    --control-line: #737b91;
+    --error-text: #ff9292;
+    --marker: rgb(255 221 0 / 0.18);
+    --word-dim: #858a9c;
+    --speed-line: rgb(255 255 255 / 0.055);
+    --light-logo-display: block;
+    --dark-logo-display: none;
+  }
+}
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --surface: #1a1c2a;
+  --surface-card: #282b3e;
+  --surface-soft: #232638;
+  --ink: #f5f6fa;
+  --body-text: #f0f1f5;
+  --muted-text: #b9bdca;
+  --muted-35: var(--muted-text);
+  --muted-40: var(--muted-text);
+  --muted-45: var(--muted-text);
+  --muted-50: var(--muted-text);
+  --muted-55: var(--muted-text);
+  --muted-60: var(--muted-text);
+  --line: #404456;
+  --control-line: #737b91;
+  --error-text: #ff9292;
+  --marker: rgb(255 221 0 / 0.18);
+  --word-dim: #858a9c;
+  --speed-line: rgb(255 255 255 / 0.055);
+  --light-logo-display: block;
+  --dark-logo-display: none;
+}
+
+/* These sections deliberately keep their original palette in either theme. */
+[data-tone="dark"] {
+  --surface: #ffffff;
+  --surface-card: #ffffff;
+  --surface-soft: #fafafa;
+  --ink: #232638;
+  --body-text: #3c3c3b;
+  --muted-text: #686868;
+  --muted-35: rgb(60 60 59 / 0.35);
+  --muted-40: rgb(60 60 59 / 0.40);
+  --muted-45: rgb(60 60 59 / 0.45);
+  --muted-50: rgb(60 60 59 / 0.50);
+  --muted-55: rgb(60 60 59 / 0.55);
+  --muted-60: rgb(60 60 59 / 0.60);
+  --line: #eaeaea;
+  --control-line: #eaeaea;
+  --marker: #ffdd00;
+}
+
+.theme-logo-dark { display: var(--dark-logo-display); }
+.theme-logo-light { display: var(--light-logo-display); }
+
+header[data-over-hero] {
+  --light-logo-display: block;
+  --dark-logo-display: none;
+}
+
+@theme {
+  --color-brand-yellow: #ffdd00;
+  --color-brand-yellow-hover: #f2d000;
+  --color-brand-navy: #232638;
+  --color-brand-navy-dark: #1a1c2a;
+  --color-brand-charcoal: #3c3c3b;
+  --color-brand-grey: #f4f4f4;
+  --color-brand-soft: #fafafa;
+  --color-brand-line: #eaeaea;
+  --color-brand-success: #00a66f;
+  --color-brand-error: #e03a3a;
+
+  --font-sans: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-instrument-serif), ui-serif, Georgia, serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Lenis (components/SmoothScroll.tsx) does the easing itself; native smooth scrolling would fight it. */
+html.lenis {
+  scroll-behavior: auto;
+}
+
+body {
+  color: var(--body-text);
+  background: var(--surface);
+}
+
+/* Keep titles to one line where they fit; when they wrap, balance the lines so no word is left on its own. */
+h1,
+h2,
+h3,
+h4 {
+  text-wrap: balance;
+}
+
+p,
+li,
+blockquote,
+dd {
+  text-wrap: pretty;
+}
+
+:focus-visible {
+  outline: 3px solid var(--color-brand-yellow);
+  outline-offset: 2px;
+}
+
+input[type="range"] {
+  accent-color: var(--color-brand-yellow);
+}
+
+/* Keep focused fields clear of the sticky header. */
+input,
+select,
+textarea {
+  scroll-margin-top: 6rem;
+}
+
+@utility no-scrollbar {
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* Nav/footer links: yellow underline that sweeps in from the left on hover and stays on the current page. */
+@utility link-underline {
+  position: relative;
+  &::after {
+    content: "";
+    position: absolute;
+    inset-inline: 0;
+    bottom: -0.3rem;
+    height: 2px;
+    border-radius: 2px;
+    background: var(--color-brand-yellow);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 350ms cubic-bezier(0.65, 0.05, 0.36, 1);
+  }
+  &[aria-current="page"]::after,
+  &:focus-visible::after {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+  @media (hover: hover) {
+    &:hover::after {
+      transform: scaleX(1);
+      transform-origin: left;
+    }
+  }
+}
+
+/* Inline text links: a thin yellow underline that floods up behind the text on hover. */
+@utility link-fill {
+  background-image: linear-gradient(var(--color-brand-yellow), var(--color-brand-yellow));
+  background-repeat: no-repeat;
+  background-position: 0 100%;
+  background-size: 100% 2px;
+  padding-inline: 0.1em;
+  margin-inline: -0.1em;
+  transition:
+    background-size 350ms cubic-bezier(0.65, 0.05, 0.36, 1),
+    color 250ms ease;
+  @media (hover: hover) {
+    &:hover {
+      background-size: 100% 100%;
+      color: var(--color-brand-navy);
+    }
+  }
+  &:focus-visible {
+    background-size: 100% 100%;
+    color: var(--color-brand-navy);
+  }
+}
+
+/* Titles: the yellow marker (see <Highlight>) sweeps in behind the text on hover. */
+@utility hover-marker {
+  background-image: linear-gradient(var(--marker), var(--marker));
+  background-repeat: no-repeat;
+  background-position: 0 88%;
+  background-size: 0% 32%;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  transition: background-size 550ms cubic-bezier(0.65, 0.05, 0.36, 1);
+  @media (hover: hover) {
+    &:hover {
+      background-size: 100% 32%;
+    }
+  }
+  /* Set by script to sweep the marker in without a hover, e.g. to draw the eye when a title scrolls into view. */
+  &[data-marked] {
+    background-size: 100% 32%;
+    transition-duration: 1400ms;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .link-underline::after,
+  .link-fill,
+  .hover-marker {
+    transition: none;
+  }
+}
+
+/*
+ * Motorsport-style diagonal speed lines. Masked so they only show in the side gutters,
+ * fading out towards the content and at the top and bottom of the section.
+ */
+@utility bg-speed-lines {
+  background-image:
+    repeating-linear-gradient(-62deg, transparent 0 22px, var(--speed-line, rgb(35 38 56 / 0.055)) 22px 23px),
+    repeating-linear-gradient(-62deg, transparent 0 88px, var(--speed-line, rgb(35 38 56 / 0.055)) 88px 92px);
+  mask-image:
+    linear-gradient(90deg, #000 0%, transparent 24%, transparent 76%, #000 100%),
+    linear-gradient(180deg, transparent 0%, #000 18%, #000 82%, transparent 100%);
+  mask-composite: intersect;
+  -webkit-mask-composite: source-in;
+}
+
+/* Scroll-lit statement (see components/Statement.tsx). Words are only dimmed once the script has set data-scrub. */
+[data-word] {
+  transition:
+    color 400ms ease,
+    background-size 700ms cubic-bezier(0.65, 0.05, 0.36, 1);
+}
+[data-scrub] [data-word]:not([data-lit]) {
+  color: var(--word-dim);
+}
+[data-mark] {
+  background-image: linear-gradient(var(--marker), var(--marker));
+  background-repeat: no-repeat;
+  background-position: 0 88%;
+  background-size: 100% 30%;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+[data-scrub] [data-mark]:not([data-lit]) {
+  background-size: 0% 30%;
+}
+
+/* Hero entrance on page load: content rises in one piece after another while the image settles. */
+@keyframes hero-in {
+  from {
+    opacity: 0;
+    transform: translateY(1.75rem);
+    filter: blur(6px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+    filter: none;
+  }
+}
+@keyframes hero-settle {
+  from {
+    transform: scale(1.08);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+@utility animate-hero-in {
+  animation: hero-in 1000ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
+  }
+}
+@utility animate-hero-settle {
+  animation: hero-settle 2200ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
+  }
+}
+
+/* Header entrance on page load: logo, links and button drop in from above, one after another. */
+@keyframes nav-in {
+  from {
+    opacity: 0;
+    transform: translateY(-0.875rem);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@utility animate-nav-in {
+  animation: nav-in 700ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
+  }
+}
+
+/* Finance finder (see components/FinanceFinder.tsx): the chosen branch draws in, then the result slides in. */
+@media (width < 64rem) {
+  .finance-finder {
+    overflow: clip;
+    margin-inline: -0.5rem;
+    padding: 0.5rem;
+  }
+  .finance-finder [data-finder-panel] {
+    grid-area: 1 / 1;
+    min-width: 0;
+    transition: translate 450ms cubic-bezier(0.2, 0.7, 0.2, 1);
+  }
+  .finance-finder[data-finder-result="false"] [data-finder-panel="result"],
+  .finance-finder[data-finder-result="true"] [data-finder-panel="choices"] {
+    max-height: 0;
+    visibility: hidden;
+    overflow: hidden;
+  }
+  .finance-finder[data-finder-result="false"] [data-finder-panel="result"] {
+    translate: 100% 0;
+  }
+  .finance-finder[data-finder-result="true"] [data-finder-panel="choices"] {
+    translate: -100% 0;
+  }
+  .finance-finder .animate-result-in {
+    animation: none;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .finance-finder [data-finder-panel] {
+    transition: none;
+  }
+}
+
+@keyframes branch-draw {
+  from {
+    stroke-dasharray: 1;
+    stroke-dashoffset: 1;
+  }
+  to {
+    stroke-dasharray: 1;
+    stroke-dashoffset: 0;
+  }
+}
+@utility animate-branch-draw {
+  stroke-dasharray: 1;
+  animation: branch-draw 600ms cubic-bezier(0.65, 0.05, 0.36, 1) both;
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
+  }
+}
+@keyframes result-in {
+  from {
+    opacity: 0;
+    transform: translateX(1.5rem);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@utility animate-result-in {
+  animation: result-in 550ms cubic-bezier(0.2, 0.7, 0.2, 1) 250ms both;
+  @media (prefers-reduced-motion: reduce) {
+    animation: none;
+  }
+}
+
+/* Scroll reveal (see components/Reveal.tsx and components/ScrollReveal.tsx). */
+[data-reveal] {
+  opacity: 0;
+  transition:
+    opacity 700ms ease-out,
+    transform 800ms cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+[data-reveal="left"] {
+  transform: translateX(-2rem);
+}
+[data-reveal="right"] {
+  transform: translateX(2rem);
+}
+[data-reveal="up"] {
+  transform: translateY(1.5rem);
+}
+[data-reveal="pop"] {
+  transform: scale(0.6);
+}
+@media (min-width: 48rem) {
+  [data-reveal="left"] {
+    transform: translateX(-5rem);
+  }
+  [data-reveal="right"] {
+    transform: translateX(5rem);
+  }
+}
+[data-reveal][data-revealed] {
+  opacity: 1;
+  transform: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal] {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
