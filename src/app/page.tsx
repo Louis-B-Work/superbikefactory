@@ -9,6 +9,7 @@ import {
   Reviews,
   WhySuper,
 } from "@/components/sections";
+import { TrustpilotAttribution } from "@/components/TrustpilotAttribution";
 import { Gold, TextLink } from "@/components/ui";
 
 export default function Home() {
@@ -31,9 +32,10 @@ export default function Home() {
         <QuoteCta>
           Get my quote <ArrowRightIcon className="h-4 w-4" />
         </QuoteCta>
-        <TextLink href="/bike-finance#calculator" onDark>
+        <TextLink href="/calculator" onDark>
           Calculate payments
         </TextLink>
+        <TrustpilotAttribution onDark />
       </FullBleedHero>
 
       <HomeStatement />

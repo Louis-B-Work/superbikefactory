@@ -190,30 +190,63 @@ export function FinanceCalculator({
             </>
           ) : (
             <>
-              <Slider
-                id={`${id}-price`}
-                label="Bike price"
-                value={price}
-                display={formatGBP(price, true)}
-                min={cfg.minPrice}
-                max={cfg.maxPrice}
-                step={cfg.priceStep}
-                minLabel={formatGBP(cfg.minPrice, true)}
-                maxLabel={formatGBP(cfg.maxPrice, true)}
-                onChange={setPrice}
-              />
-              <Slider
-                id={`${id}-deposit`}
-                label="Deposit"
-                value={safeDeposit}
-                display={formatGBP(safeDeposit, true)}
-                min={0}
-                max={maxDeposit}
-                step={cfg.depositStep}
-                minLabel="No deposit"
-                maxLabel={formatGBP(maxDeposit, true)}
-                onChange={setDeposit}
-              />
+              <div className="hidden space-y-8 md:block">
+                <Slider
+                  id={`${id}-price-slider`}
+                  label="Bike price"
+                  value={price}
+                  display={formatGBP(price, true)}
+                  min={cfg.minPrice}
+                  max={cfg.maxPrice}
+                  step={cfg.priceStep}
+                  minLabel={formatGBP(cfg.minPrice, true)}
+                  maxLabel={formatGBP(cfg.maxPrice, true)}
+                  onChange={(value) => {
+                    setPrice(value);
+                    setInvalidPrice(false);
+                  }}
+                />
+                <Slider
+                  id={`${id}-deposit-slider`}
+                  label="Deposit"
+                  value={safeDeposit}
+                  display={formatGBP(safeDeposit, true)}
+                  min={0}
+                  max={maxDeposit}
+                  step={cfg.depositStep}
+                  minLabel="No deposit"
+                  maxLabel={formatGBP(maxDeposit, true)}
+                  onChange={(value) => {
+                    setDeposit(value);
+                    setInvalidDeposit(false);
+                  }}
+                />
+              </div>
+              <div className="space-y-8 md:hidden">
+                <AmountInput
+                  id={`${id}-price-input`}
+                  label="Bike price"
+                  value={price}
+                  min={cfg.minPrice}
+                  max={cfg.maxPrice}
+                  onChange={(value) => {
+                    setPrice(value);
+                    setDeposit(Math.min(safeDeposit, Math.max(0, value - MIN_BORROW)));
+                    setInvalidDeposit(false);
+                  }}
+                  onValidityChange={setInvalidPrice}
+                />
+                <AmountInput
+                  key={`mobile-${price}`}
+                  id={`${id}-deposit-input`}
+                  label="Deposit"
+                  value={safeDeposit}
+                  min={0}
+                  max={maxDeposit}
+                  onChange={setDeposit}
+                  onValidityChange={setInvalidDeposit}
+                />
+              </div>
             </>
           )}
 

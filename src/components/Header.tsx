@@ -98,8 +98,8 @@ export function Header() {
           <ThemeLogo className="h-6 sm:h-7" preload />
         </Link>
 
-        <nav aria-label="Main" className="hidden md:block">
-          <ul className="flex items-center gap-8">
+        <nav aria-label="Main" className="hidden lg:block">
+          <ul className="flex items-center gap-4 lg:gap-5">
             {site.nav.map((item, i) => {
               const active = pathname === item.href;
               return (
@@ -108,7 +108,7 @@ export function Header() {
                     href={item.href}
                     aria-current={active ? "page" : undefined}
                     className={cn(
-                      "link-underline py-1 text-[15px] font-semibold transition-colors duration-300",
+                      "link-underline py-1 text-sm font-semibold transition-colors duration-300",
                       overHero
                         ? active
                           ? "text-white"
@@ -126,14 +126,14 @@ export function Header() {
           </ul>
         </nav>
 
-        <div className="animate-nav-in hidden [animation-delay:380ms] md:block">
+        <div className="animate-nav-in hidden [animation-delay:380ms] lg:block">
           <QuoteCta className="px-5 py-2.5 text-sm" />
         </div>
 
         <button
           type="button"
           className={cn(
-            "animate-nav-in -mr-2 inline-flex items-center justify-center rounded-md p-2 transition-colors [animation-delay:120ms] md:hidden",
+            "animate-nav-in -mr-2 inline-flex items-center justify-center rounded-md p-2 transition-colors [animation-delay:120ms] lg:hidden",
             overHero ? "text-white" : "text-theme-ink",
           )}
           aria-expanded={open}
@@ -145,7 +145,7 @@ export function Header() {
         </button>
       </Container>
 
-      <div id="mobile-menu" hidden={!open} className="fixed inset-x-0 top-18 bottom-0 bg-theme-surface md:hidden">
+      <div id="mobile-menu" hidden={!open} className="fixed inset-x-0 top-18 bottom-0 bg-theme-surface lg:hidden">
         <Container className="flex flex-col py-6">
           {site.nav.map((item) => {
             const active = pathname === item.href;

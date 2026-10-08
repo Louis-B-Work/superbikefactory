@@ -17,9 +17,18 @@ export const site = {
   // Home is reached via the logo, so it isn't listed here.
   nav: [
     { label: "Bike Finance", href: "/bike-finance" },
+    { label: "Calculator", href: "/calculator" },
     { label: "Bad Credit Finance", href: "/bad-credit-finance" },
+    { label: "Guides", href: "/guides" },
     { label: "About", href: "/about" },
+    { label: "Contact", href: "/contact" },
   ],
+
+  trustpilot: {
+    url: "https://uk.trustpilot.com/review/superbikefactory.co.uk",
+    rating: 4.6,
+    reviewCount: 19186,
+  },
 
   /**
    * Quote CTAs send visitors to an external partner site.

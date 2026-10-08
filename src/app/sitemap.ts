@@ -8,7 +8,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const routes = [
     "/",
     "/bike-finance/",
+    "/calculator/",
     "/bad-credit-finance/",
+    "/guides/",
+    "/contact/",
     "/about/",
     "/privacy/",
     "/cookies/",

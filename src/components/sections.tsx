@@ -1,7 +1,7 @@
 import Image from "next/image";
 import type { ReactNode } from "react";
 import { site } from "@/config/site";
-import { faqs as allFaqs, financeTypes, testimonials, type Faq } from "@/content/finance";
+import { faqs as allFaqs, financeTypes, type Faq } from "@/content/finance";
 import { financeGuides } from "@/content/bikeFinance";
 import { FaqAccordion } from "./FaqAccordion";
 import { FinanceFinder } from "./FinanceFinder";
@@ -15,9 +15,9 @@ import {
 } from "./icons";
 import { QuoteCta } from "./QuoteCta";
 import { Reveal } from "./Reveal";
-import { ReviewsCarousel } from "./ReviewsCarousel";
+import { TrustpilotAttribution } from "./TrustpilotAttribution";
 import { WhySuperCarousel } from "./WhySuperCarousel";
-import { Container, HoverTitle, Section, SectionHeading, cn } from "./ui";
+import { Container, Highlight, HoverTitle, Section, SectionHeading, cn } from "./ui";
 
 export function FullBleedHero({
   title,
@@ -246,18 +246,21 @@ export function FinanceTypes({ detailed = false }: { detailed?: boolean }) {
 export function Reviews() {
   return (
     <Section tone="soft">
-      <ReviewsCarousel
-        reviews={testimonials}
-        heading={
-          <h2 className="text-3xl font-bold leading-tight tracking-tight text-theme-ink sm:text-4xl">
-            <HoverTitle>What riders say</HoverTitle>
-          </h2>
-        }
-      />
-      <p className="mt-10 text-center text-xs text-theme-muted-40">
-        [PLACEHOLDER] Sample reviews for layout only. Replace with genuine customer reviews (e.g. a Trustpilot widget)
-        before launch.
-      </p>
+      <div className="mx-auto max-w-4xl text-center">
+        <h2 className="text-3xl font-bold leading-tight tracking-tight text-theme-ink sm:text-4xl">
+          <HoverTitle>What riders say</HoverTitle>
+        </h2>
+        <div className="mt-8 rounded-2xl border border-theme-line bg-theme-card px-6 py-10 sm:px-10">
+          <p className="text-lg font-semibold text-theme-ink">
+            <Highlight>Trustpilot reviews</Highlight>
+          </p>
+          <p className="mx-auto mt-3 max-w-xl leading-relaxed text-theme-body/70">
+            Our official Trustpilot review widget will be connected here. In the meantime, read verified customer
+            feedback on Trustpilot.
+          </p>
+          <TrustpilotAttribution className="mt-5" />
+        </div>
+      </div>
     </Section>
   );
 }

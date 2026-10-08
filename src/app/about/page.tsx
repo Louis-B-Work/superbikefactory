@@ -5,7 +5,7 @@ import { ArrowRightIcon, ScaleIcon, ShieldIcon, UsersIcon } from "@/components/i
 import { QuoteCta } from "@/components/QuoteCta";
 import { CtaBand, FullBleedHero } from "@/components/sections";
 import { Reveal } from "@/components/Reveal";
-import { ButtonLink, Gold, Section, SectionHeading, TextLink } from "@/components/ui";
+import { ButtonLink, Container, Gold, Section, SectionHeading, TextLink } from "@/components/ui";
 
 export const metadata: Metadata = {
   title: "About Us",
@@ -52,6 +52,19 @@ export default function AboutPage() {
           Our story
         </TextLink>
       </FullBleedHero>
+
+      <aside aria-label="Help with pre-administration complaints" className="border-y border-brand-yellow/40 bg-brand-yellow/10">
+        <Container className="py-4">
+          <p className="text-sm leading-relaxed text-theme-body/80">
+            <strong className="text-theme-ink">Bought before administration?</strong>{" "}
+            For help with a complaint relating to that period, email the administrators at{" "}
+            <a href="mailto:SBF@kr8.co.uk" className="font-bold text-theme-ink underline underline-offset-2">
+              SBF@kr8.co.uk
+            </a>
+            .
+          </p>
+        </Container>
+      </aside>
 
       <EditorialSection
         id="our-story"
