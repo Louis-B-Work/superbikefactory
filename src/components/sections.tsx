@@ -314,12 +314,15 @@ export function CtaBand({
   image = "/images/cta-ride.jpg",
   objectPosition = "center 60%",
   mirror = true,
+  children,
 }: {
   title?: string;
   body?: string;
   image?: string;
   objectPosition?: string;
   mirror?: boolean;
+  /** Replaces the default quote button. */
+  children?: ReactNode;
 }) {
   return (
     <section className="relative isolate overflow-hidden bg-brand-navy text-white">
@@ -340,9 +343,11 @@ export function CtaBand({
           <span aria-hidden className="block h-1 w-12 rounded-full bg-brand-yellow" />
           <h2 className="mt-6 text-4xl font-bold tracking-tight sm:text-5xl">{title}</h2>
           <p className="mt-4 max-w-md text-lg leading-relaxed text-white/80">{body}</p>
-          <QuoteCta className="mt-9">
-            {site.primaryCta.label} <ArrowRightIcon className="h-4 w-4" />
-          </QuoteCta>
+          {children ?? (
+            <QuoteCta className="mt-9">
+              {site.primaryCta.label} <ArrowRightIcon className="h-4 w-4" />
+            </QuoteCta>
+          )}
         </div>
       </Container>
     </section>

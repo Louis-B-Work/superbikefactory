@@ -10,15 +10,15 @@
 export const site = {
   name: "SuperBike Factory",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://superbikefactory.co.uk",
-  tagline: "Superbike. Super Finance.",
+  tagline: "Quality used bikes. Super Finance.",
   description:
-    "Motorbike finance made simple. Compare deals from our panel of lenders, whatever your credit history, and get on the road sooner with SuperBike Factory.",
+    "Quality used motorbikes for sale, with finance from our panel of lenders whatever your credit history. Search our stock or sell your bike to SuperBike Factory.",
 
   // Home is reached via the logo, so it isn't listed here.
   nav: [
-    { label: "Bike Finance", href: "/bike-finance" },
-    { label: "Calculator", href: "/calculator" },
-    { label: "Bad Credit Finance", href: "/bad-credit-finance" },
+    { label: "Buy", href: "/bikes" },
+    { label: "Sell", href: "/sell-your-bike" },
+    { label: "Finance", href: "/bike-finance" },
     { label: "Guides", href: "/guides" },
     { label: "About", href: "/about" },
     { label: "Contact", href: "/contact" },
@@ -43,6 +43,11 @@ export const site = {
     phone: "[PLACEHOLDER: 0000 000 0000]",
     email: "[PLACEHOLDER: finance@superbikefactory.co.uk]",
     hours: "[PLACEHOLDER: Mon–Fri 9am–6pm, Sat 9am–5pm]",
+  },
+
+  /** "Sell your bike" form. While `endpoint` is empty the form hands the details to the visitor's email client. */
+  sell: {
+    endpoint: "" as string, // [PLACEHOLDER] e.g. a Formspree/Getform URL that accepts JSON
   },
 
   legalLinks: [

@@ -1,6 +1,6 @@
-# SuperBike Factory: v1 (finance-only)
+# SuperBike Factory
 
-This is the marketing site for SuperBike Factory's relaunch as a **motorbike finance broker** (there's no bike stock). It's built with Next.js (App Router) and Tailwind CSS v4 and exported as a fully static site.
+This is the site for SuperBike Factory: a **used motorbike dealer** with stock search, a "sell your bike" valuation page, and motorbike finance as a secondary service. It's built with Next.js (App Router) and Tailwind CSS v4 and exported as a fully static site.
 
 ## Commands
 
@@ -19,8 +19,9 @@ npm run build   # static export to ./out (upload this folder to any static host)
 | `src/config/site.ts` | Nav, **quote CTA partner URL** (`primaryCta.url`), contact details, **compliance/FCA placeholders**, calculator APR and ranges |
 | `src/content/finance.ts` | FAQs, finance types (HP/PCP), how-it-works steps, testimonials |
 | `src/lib/finance.ts` | Repayment maths used by the calculator and the representative example |
+| `src/content/stock.ts` | **Bike stock** (placeholder listings; replace with real stock or a feed). Search/filter/sort logic is in `src/lib/stock.ts` |
 | `src/components/` | Header, Footer, FinanceCalculator, QuoteCta (+ coming-soon notice), ReviewsCarousel, shared sections and UI |
-| `src/app/` | Pages: `/`, `/about`, `/bike-finance`, `/bad-credit-finance`, `/privacy`, `/cookies`, `/complaints` |
+| `src/app/` | Pages: `/`, `/bikes`, `/bikes/[slug]`, `/sell-your-bike`, `/about`, `/bike-finance`, `/bad-credit-finance`, `/privacy`, `/cookies`, `/complaints` |
 | `src/content/badCredit.ts` | Original bad credit guidance: credit issues, lender checks, application stages, approval tips and FAQs |
 | `src/content/bikeFinance.ts` | Detailed HP/PCP guidance and budget considerations for the Bike Finance page (separate from the home finance finder) |
 | `src/content/whySuper.ts` | Home benefit-card text, destinations and temporary photo/focal-position assignments; replace these with the final portrait JPGs |
