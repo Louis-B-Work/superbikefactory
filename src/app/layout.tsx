@@ -29,7 +29,7 @@ const instrumentSerif = Instrument_Serif({
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: `Used Motorbikes for Sale | ${site.name}`,
+    default: `Motorbike Finance | ${site.name}`,
     template: `%s | ${site.name}`,
   },
   description: site.description,
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_GB",
     siteName: site.name,
-    title: `Used Motorbikes for Sale | ${site.name}`,
+    title: `Motorbike Finance | ${site.name}`,
     description: site.description,
     images: [{ url: sitePathUrl("/images/hero-home.jpg", site.url), width: 2400, height: 1600 }],
   },

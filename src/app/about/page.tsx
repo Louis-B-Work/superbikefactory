@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { EditorialSection } from "@/components/EditorialSection";
 import { FeatureCard } from "@/components/FeatureCard";
 import { ArrowRightIcon, ScaleIcon, ShieldIcon, UsersIcon } from "@/components/icons";
+import { QuoteCta } from "@/components/QuoteCta";
 import { CtaBand, FullBleedHero } from "@/components/sections";
 import { Reveal } from "@/components/Reveal";
 import { ButtonLink, Container, Gold, Section, SectionHeading, TextLink } from "@/components/ui";
@@ -9,7 +10,7 @@ import { ButtonLink, Container, Gold, Section, SectionHeading, TextLink } from "
 export const metadata: Metadata = {
   title: "About Us",
   description:
-    "SuperBike Factory has helped riders across the UK get on two wheels for years. Buy a quality used bike, sell the one you ride now, and finance it your way.",
+    "SuperBike Factory has helped riders across the UK get on two wheels for years. Now we're focused on one thing: finding you the right motorbike finance.",
 };
 
 const values = [
@@ -36,17 +37,17 @@ export default function AboutPage() {
       <FullBleedHero
         title={
           <>
-            The name riders trust, <Gold>for your next bike</Gold>
+            The name riders trust, <Gold>now in finance</Gold>
           </>
         }
-        intro="SuperBike Factory has helped riders across the UK find their next bike for years. Now you can buy, sell and finance, all in one place."
+        intro="SuperBike Factory helped thousands of riders across the UK find their next bike. Now we're putting that experience into one thing: helping you pay for it."
         image="/images/hero-about-cruiser.jpg"
         imageAlt="Detail of a black cruiser motorbike with chrome engine and exhaust"
         objectPosition="65% center"
       >
-        <ButtonLink href="/bikes">
-          Browse our bikes <ArrowRightIcon className="h-4 w-4" />
-        </ButtonLink>
+        <QuoteCta>
+          Get a quote <ArrowRightIcon className="h-4 w-4" />
+        </QuoteCta>
         <TextLink href="#our-story" onDark>
           Our story
         </TextLink>
@@ -79,22 +80,19 @@ export default function AboutPage() {
         </p>
         <p>
           We learned that finding the right bike is only half the journey. Paying for it in a way that works for
-          you matters just as much.
+          you matters just as much. Now we&apos;re putting that experience into motorbike finance.
         </p>
         <p>
-          Today we bring both together: quality used bikes to choose from, finance from our panel of lenders if
-          you want it, and a straightforward way to sell the bike you ride now.
+          We no longer sell bikes. We help you explore finance from our panel of lenders, so you can focus on
+          choosing your next ride from a dealer.
         </p>
-        <div className="mt-5 flex flex-wrap items-center gap-x-8 gap-y-4">
-          <ButtonLink href="/bikes">
-            Browse our bikes <ArrowRightIcon className="h-4 w-4" />
-          </ButtonLink>
-          <TextLink href="/sell-your-bike">Sell your bike</TextLink>
-        </div>
+        <ButtonLink href="/bike-finance" className="mt-5">
+          Explore bike finance <ArrowRightIcon className="h-4 w-4" />
+        </ButtonLink>
       </EditorialSection>
 
       <Section tone="dark" pattern>
-        <SectionHeading title="The things that won't change" intro="The same rider-first approach, whether you're buying, selling or financing." />
+        <SectionHeading title="The things that won't change" intro="A new focus, with the same rider-first approach." />
         <ul className="grid gap-5 md:grid-cols-3">
           {values.map(({ icon: Icon, title, body }, i) => (
             <li key={title}>
@@ -114,7 +112,7 @@ export default function AboutPage() {
             <SectionHeading
               align="left"
               title="We're a broker, not a lender"
-              intro="If you choose finance for your bike, here's what that means, without the jargon."
+              intro="What that means for you, without the jargon."
             />
             <TextLink href="/bike-finance">
               How bike finance works <ArrowRightIcon className="h-4 w-4" />
@@ -147,16 +145,11 @@ export default function AboutPage() {
       </Section>
 
       <CtaBand
-        title="Your next ride starts here"
-        body="Browse our bikes in stock, or tell us what yours is worth."
+        title="Your next chapter starts here"
         image="/images/mountain-ride.jpg"
         objectPosition="60% 65%"
         mirror={false}
-      >
-        <ButtonLink href="/bikes" className="mt-9">
-          Browse our bikes <ArrowRightIcon className="h-4 w-4" />
-        </ButtonLink>
-      </CtaBand>
+      />
     </>
   );
 }

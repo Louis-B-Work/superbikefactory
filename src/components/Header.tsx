@@ -11,7 +11,7 @@ import { ThemeLogo } from "./ThemeLogo";
 import { Container, cn } from "./ui";
 
 /** Routes that open with a full-bleed image hero, where the header starts transparent. */
-const HERO_ROUTES = ["/", "/about", "/bike-finance", "/bad-credit-finance", "/sell-your-bike"];
+const HERO_ROUTES = ["/", "/about", "/bike-finance", "/bad-credit-finance"];
 const SCROLL_THRESHOLD = 24;
 
 function normalise(path: string) {
