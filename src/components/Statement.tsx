@@ -10,7 +10,7 @@ type Segment = { text: string; style?: "serif" | "mark" };
 /** Header height, so the pinned statement centres in the space below it. */
 const HEADER_PX = 72;
 /** Share of the pinned scroll spent lighting words; the rest holds the finished statement before moving on. */
-const REVEAL_SHARE = 0.8;
+const REVEAL_SHARE = 0.75;
 /** How long scrolling must have settled before the finished statement collapses its pinned stretch. */
 const COLLAPSE_IDLE_MS = 200;
 
@@ -97,7 +97,7 @@ export function Statement({ segments, children }: { segments: Segment[]; childre
   return (
     <section
       ref={sectionRef}
-      className="group/pin relative bg-theme-surface pt-28 pb-16 data-pinned:h-[250svh] data-pinned:py-0 data-pinned:data-played:h-[calc(100svh-4.5rem)] sm:pt-40 sm:pb-20 sm:data-pinned:py-0"
+      className="group/pin relative bg-theme-surface pt-28 pb-16 data-pinned:h-[170svh] data-pinned:py-0 data-pinned:data-played:h-[calc(100svh-4.5rem)] sm:pt-40 sm:pb-20 sm:data-pinned:py-0"
     >
       <div
         ref={panelRef}

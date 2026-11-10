@@ -48,7 +48,7 @@ export function WhySuperCarousel() {
               <Link
                 href={card.href}
                 aria-label={`${card.title}: ${card.linkLabel}`}
-                className="group relative isolate flex min-h-[460px] flex-col justify-between overflow-hidden rounded-2xl border border-white/15 bg-brand-navy-dark p-6 text-white transition-transform duration-300 motion-safe:can-hover:hover:scale-[1.02] sm:min-h-[520px] sm:p-8 lg:min-h-[600px] motion-reduce:transition-none"
+                className="group relative isolate flex min-h-[clamp(340px,calc(100svh-26rem),520px)] flex-col justify-between overflow-hidden rounded-2xl border border-white/15 bg-brand-navy-dark p-6 text-white transition-transform duration-300 motion-safe:can-hover:hover:scale-[1.02] sm:p-8 motion-reduce:transition-none"
               >
                 <Image
                   src={card.image}
@@ -65,7 +65,7 @@ export function WhySuperCarousel() {
                 </div>
                 <span
                   aria-hidden
-                  className="mt-12 flex h-11 w-11 shrink-0 items-center justify-center self-end rounded-full bg-white text-brand-navy transition-colors duration-300 group-hover:bg-brand-yellow group-focus-visible:bg-brand-yellow motion-reduce:transition-none"
+                  className="mt-6 flex h-11 w-11 shrink-0 items-center justify-center self-end rounded-full bg-white text-brand-navy transition-colors duration-300 group-hover:bg-brand-yellow group-focus-visible:bg-brand-yellow motion-reduce:transition-none"
                 >
                   <ArrowRightIcon className="h-5 w-5 -rotate-45 transition-transform duration-300 motion-safe:group-hover:rotate-0 motion-safe:group-focus-visible:rotate-0 motion-reduce:transition-none" />
                 </span>
