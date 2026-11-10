@@ -33,6 +33,8 @@ export const metadata: Metadata = {
     template: `%s | ${site.name}`,
   },
   description: site.description,
+  // Preview build served under /classified-site: keep it out of search results.
+  robots: { index: false, follow: false },
   openGraph: {
     type: "website",
     locale: "en_GB",
