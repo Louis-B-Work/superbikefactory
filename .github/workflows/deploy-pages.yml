@@ -49,13 +49,18 @@ jobs:
           ref: classified-site
           path: classified
       # A broken preview must not block the main site from deploying.
-      - name: Build classified-site preview
+      - name: Validate classified-site preview
+        id: classified-validate
         continue-on-error: true
         working-directory: classified
         run: |
           npm ci
           npm test
-          npm run build
+      - name: Build classified-site preview
+        if: steps.classified-validate.outcome == 'success'
+        continue-on-error: true
+        working-directory: classified
+        run: npm run build
         env:
           NEXT_PUBLIC_BASE_PATH: ${{ steps.pages.outputs.base_path }}/classified-site
           NEXT_PUBLIC_SITE_URL: ${{ steps.pages.outputs.base_url }}/classified-site
