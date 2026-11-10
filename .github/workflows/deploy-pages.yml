@@ -40,6 +40,28 @@ jobs:
         env:
           NEXT_PUBLIC_BASE_PATH: ${{ steps.pages.outputs.base_path }}
           NEXT_PUBLIC_SITE_URL: ${{ steps.pages.outputs.base_url }}
+      # Preview of the stock/classified version, published under /classified-site.
+      # Checked out after the main build so it can't affect main's lint or type-check.
+      - name: Check out classified-site preview
+        continue-on-error: true
+        uses: actions/checkout@v4
+        with:
+          ref: classified-site
+          path: classified
+      # A broken preview must not block the main site from deploying.
+      - name: Build classified-site preview
+        continue-on-error: true
+        working-directory: classified
+        run: |
+          npm ci
+          npm test
+          npm run build
+        env:
+          NEXT_PUBLIC_BASE_PATH: ${{ steps.pages.outputs.base_path }}/classified-site
+          NEXT_PUBLIC_SITE_URL: ${{ steps.pages.outputs.base_url }}/classified-site
+      - name: Add preview to site output
+        run: |
+          if [ -f classified/out/index.html ]; then mv classified/out out/classified-site; else echo "classified-site preview was not built; skipping"; fi
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
