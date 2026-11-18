@@ -94,9 +94,10 @@ export default function Home() {
 
       <Section tone="soft">
         <SectionHeading title="Our latest arrivals" intro="Freshly prepared, fully checked and ready to ride." />
-        <ul className="grid gap-6 sm:grid-cols-2 xl:grid-cols-4">
+        {/* A swipeable row on phones; the grid from sm up. */}
+        <ul className="no-scrollbar -mx-5 flex snap-x snap-mandatory scroll-px-5 gap-4 overflow-x-auto overscroll-x-contain px-5 pb-2 sm:mx-0 sm:grid sm:grid-cols-2 sm:gap-6 sm:overflow-visible sm:px-0 sm:pb-0 xl:grid-cols-4">
           {arrivals.map((bike) => (
-            <li key={bike.slug}>
+            <li key={bike.slug} className="w-[78vw] max-w-[320px] shrink-0 snap-start sm:w-auto sm:max-w-none">
               <BikeCard bike={bike} />
             </li>
           ))}
@@ -109,17 +110,17 @@ export default function Home() {
       </Section>
 
       <Section>
-        <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
-          <FeatureCard icon={ShieldIcon} title="Inspected before sale">
+        <div className="grid grid-cols-2 gap-3 sm:gap-6 xl:grid-cols-4">
+          <FeatureCard icon={ShieldIcon} title="Inspected before sale" className="max-sm:p-4 max-sm:[&>h3]:mt-4 max-sm:[&>h3]:text-base max-sm:[&>div]:mt-2 max-sm:[&>div]:text-sm">
             Every bike is mechanically checked and HPI cleared before it goes on the forecourt.
           </FeatureCard>
-          <FeatureCard icon={CheckIcon} title="Warranty included">
+          <FeatureCard icon={CheckIcon} title="Warranty included" className="max-sm:p-4 max-sm:[&>h3]:mt-4 max-sm:[&>h3]:text-base max-sm:[&>div]:mt-2 max-sm:[&>div]:text-sm">
             Cover as standard on every bike, with extended plans available.
           </FeatureCard>
-          <FeatureCard icon={WalletIcon} title="Finance in minutes">
+          <FeatureCard icon={WalletIcon} title="Finance in minutes" className="max-sm:p-4 max-sm:[&>h3]:mt-4 max-sm:[&>h3]:text-base max-sm:[&>div]:mt-2 max-sm:[&>div]:text-sm">
             A decision usually within the hour. All credit histories considered.
           </FeatureCard>
-          <FeatureCard icon={KeyIcon} title="Part-exchange welcome">
+          <FeatureCard icon={KeyIcon} title="Part-exchange welcome" className="max-sm:p-4 max-sm:[&>h3]:mt-4 max-sm:[&>h3]:text-base max-sm:[&>div]:mt-2 max-sm:[&>div]:text-sm">
             We&apos;ll value your old bike and settle any outstanding finance.
           </FeatureCard>
         </div>
