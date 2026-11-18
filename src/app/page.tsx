@@ -44,9 +44,9 @@ export default function Home() {
         {/* Own row under the search: a plain underlined link, not a button. */}
         <Link
           href="/sell-your-bike"
-          className="basis-full text-center font-bold text-white underline decoration-2 underline-offset-4 transition-colors hover:decoration-brand-yellow"
+          className="basis-full text-center font-bold text-brand-yellow underline decoration-2 underline-offset-4 transition-colors hover:text-white hover:decoration-white"
         >
-          Sell us your bike
+          Sell your bike to us
         </Link>
         <TrustpilotAttribution onDark />
       </FullBleedHero>
