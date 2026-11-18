@@ -27,9 +27,10 @@ export default function Home() {
       <FullBleedHero
         size="tall"
         title={
-          // Kept on one line; shrinks on phones so it still fits.
-          <span className="whitespace-nowrap max-md:text-[6vw]">
-            Find your next <Gold>super</Gold> bike
+          // One line from md up; on phones it breaks onto two larger lines.
+          <span className="md:whitespace-nowrap max-md:text-[10.5vw] max-md:leading-[1.1]">
+            Find your next <br className="md:hidden" />
+            <Gold>super</Gold> bike
           </span>
         }
         intro={`${bikes.length} quality used bikes in stock today. Tell us your budget and we'll show you what it buys.`}
@@ -39,7 +40,7 @@ export default function Home() {
         videoPortrait="/videos/hero-home-portrait.mp4"
         align="center"
       >
-        <StockSearch className="w-[min(calc(100vw-2.5rem),62rem)]" />
+        <StockSearch className="w-[min(calc(100vw-2.5rem),62rem)] max-md:mt-5" />
         <TrustpilotAttribution onDark />
       </FullBleedHero>
 

@@ -63,7 +63,7 @@ export function StockSearch({ className }: { className?: string }) {
           </button>
           <span className={monthly ? "text-theme-ink" : "text-theme-muted-50"}>Monthly Cost</span>
         </div>
-        <Link href="/sell-your-bike" className="link-underline text-sm font-bold text-theme-ink">
+        <Link href="/sell-your-bike" className="text-sm font-bold text-theme-ink underline decoration-2 underline-offset-4 transition-colors hover:decoration-brand-yellow">
           or sell us your bike
         </Link>
       </div>
