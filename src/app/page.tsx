@@ -5,7 +5,7 @@ import { ArrowRightIcon, CheckIcon, KeyIcon, ShieldIcon, TagIcon, WalletIcon } f
 import { CtaBand, FaqSection, FullBleedHero, Reviews } from "@/components/sections";
 import { StockSearch } from "@/components/StockSearch";
 import { TrustpilotAttribution } from "@/components/TrustpilotAttribution";
-import { ButtonLink, Gold, Section, SectionHeading, TextLink } from "@/components/ui";
+import { ButtonLink, Container, Gold, Section, SectionHeading, TextLink } from "@/components/ui";
 import { bikes } from "@/content/stock";
 import { filterBikes, makeCounts, sortBikes, stockSearchParams, type StockQuery } from "@/lib/stock";
 
@@ -43,22 +43,25 @@ export default function Home() {
         <TrustpilotAttribution onDark />
       </FullBleedHero>
 
-      <Section tone="soft" className="py-14 sm:py-16">
-        <h2 className="mb-6 text-2xl font-bold text-theme-ink">Browse by make</h2>
-        <ul className="flex flex-wrap gap-3">
-          {makes.map((m) => (
-            <li key={m.make}>
-              <Link
-                href={`/bikes?${stockSearchParams({ mode: "total", make: m.make })}`}
-                className="inline-flex items-center gap-2 rounded-full border border-theme-line bg-theme-card px-5 py-2.5 font-semibold text-theme-ink transition hover:border-theme-ink/30 hover:bg-brand-yellow focus-visible:ring-3 focus-visible:ring-brand-yellow focus-visible:outline-none hover:text-brand-navy"
-              >
-                {m.make}
-                <span className="text-sm font-normal text-theme-body/60">{m.count}</span>
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </Section>
+      {/* Own padding (not Section's): sits close under the hero. */}
+      <section data-tone="soft" className="bg-theme-soft pt-8 pb-12 sm:pt-10 sm:pb-14">
+        <Container>
+          <h2 className="mb-6 text-2xl font-bold text-theme-ink">Browse by make</h2>
+          <ul className="flex flex-wrap gap-3">
+            {makes.map((m) => (
+              <li key={m.make}>
+                <Link
+                  href={`/bikes?${stockSearchParams({ mode: "total", make: m.make })}`}
+                  className="inline-flex items-center gap-2 rounded-full border border-theme-line bg-theme-card px-5 py-2.5 font-semibold text-theme-ink transition hover:border-theme-ink/30 hover:bg-brand-yellow focus-visible:ring-3 focus-visible:ring-brand-yellow focus-visible:outline-none hover:text-brand-navy"
+                >
+                  {m.make}
+                  <span className="text-sm font-normal text-theme-body/60">{m.count}</span>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </Container>
+      </section>
 
       <Section>
         <SectionHeading
