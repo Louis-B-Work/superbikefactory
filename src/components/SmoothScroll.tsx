@@ -12,7 +12,8 @@ export function SmoothScroll() {
   useEffect(() => {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     const lenis = new Lenis({
-      lerp: 0.1,
+      // Higher = snappier, less trailing glide (was 0.1).
+      lerp: 0.22,
       wheelMultiplier: 1,
       autoRaf: true,
       // Let open dialogs handle their own wheel input.
