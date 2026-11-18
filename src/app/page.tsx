@@ -110,17 +110,18 @@ export default function Home() {
       </Section>
 
       <Section>
-        <div className="grid grid-cols-2 gap-3 sm:gap-6 xl:grid-cols-4">
-          <FeatureCard icon={ShieldIcon} title="Inspected before sale" className="max-sm:p-4 max-sm:[&>h3]:mt-4 max-sm:[&>h3]:text-base max-sm:[&>div]:mt-2 max-sm:[&>div]:text-sm">
+        {/* Thin stacked rows on phones, 2x2 on tablets, four across on large screens. */}
+        <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-6 xl:grid-cols-4">
+          <FeatureCard icon={ShieldIcon} title="Inspected before sale" className="max-sm:grid max-sm:grid-cols-[2.5rem_1fr] max-sm:gap-x-4 max-sm:p-4 max-sm:[&>span:first-child]:row-span-2 max-sm:[&>span:first-child]:h-10 max-sm:[&>span:first-child]:w-10 max-sm:[&>h3]:mt-0 max-sm:[&>h3]:text-base max-sm:[&>div]:mt-1 max-sm:[&>div]:text-sm">
             Every bike is mechanically checked and HPI cleared before it goes on the forecourt.
           </FeatureCard>
-          <FeatureCard icon={CheckIcon} title="Warranty included" className="max-sm:p-4 max-sm:[&>h3]:mt-4 max-sm:[&>h3]:text-base max-sm:[&>div]:mt-2 max-sm:[&>div]:text-sm">
+          <FeatureCard icon={CheckIcon} title="Warranty included" className="max-sm:grid max-sm:grid-cols-[2.5rem_1fr] max-sm:gap-x-4 max-sm:p-4 max-sm:[&>span:first-child]:row-span-2 max-sm:[&>span:first-child]:h-10 max-sm:[&>span:first-child]:w-10 max-sm:[&>h3]:mt-0 max-sm:[&>h3]:text-base max-sm:[&>div]:mt-1 max-sm:[&>div]:text-sm">
             Cover as standard on every bike, with extended plans available.
           </FeatureCard>
-          <FeatureCard icon={WalletIcon} title="Finance in minutes" className="max-sm:p-4 max-sm:[&>h3]:mt-4 max-sm:[&>h3]:text-base max-sm:[&>div]:mt-2 max-sm:[&>div]:text-sm">
+          <FeatureCard icon={WalletIcon} title="Finance in minutes" className="max-sm:grid max-sm:grid-cols-[2.5rem_1fr] max-sm:gap-x-4 max-sm:p-4 max-sm:[&>span:first-child]:row-span-2 max-sm:[&>span:first-child]:h-10 max-sm:[&>span:first-child]:w-10 max-sm:[&>h3]:mt-0 max-sm:[&>h3]:text-base max-sm:[&>div]:mt-1 max-sm:[&>div]:text-sm">
             A decision usually within the hour. All credit histories considered.
           </FeatureCard>
-          <FeatureCard icon={KeyIcon} title="Part-exchange welcome" className="max-sm:p-4 max-sm:[&>h3]:mt-4 max-sm:[&>h3]:text-base max-sm:[&>div]:mt-2 max-sm:[&>div]:text-sm">
+          <FeatureCard icon={KeyIcon} title="Part-exchange welcome" className="max-sm:grid max-sm:grid-cols-[2.5rem_1fr] max-sm:gap-x-4 max-sm:p-4 max-sm:[&>span:first-child]:row-span-2 max-sm:[&>span:first-child]:h-10 max-sm:[&>span:first-child]:w-10 max-sm:[&>h3]:mt-0 max-sm:[&>h3]:text-base max-sm:[&>div]:mt-1 max-sm:[&>div]:text-sm">
             We&apos;ll value your old bike and settle any outstanding finance.
           </FeatureCard>
         </div>
