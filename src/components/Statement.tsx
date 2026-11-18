@@ -43,7 +43,7 @@ export function Statement({ segments, children }: { segments: Segment[]; childre
     // Once the statement has played, collapse the pinned stretch to a single screen so later passes
     // scroll straight through; the panel looks exactly as it did while pinned. Collapsing moves
     // everything below the section, so it waits until scrolling has settled (a jump mid-glide would
-    // fight the smooth scroller) and the change is out of sight: either the panel hasn't locked yet and
+    // fight an in-progress scroll) and the change is out of sight: either the panel hasn't locked yet and
     // fills the rest of the screen, or the section is above the screen and the scroll position is
     // corrected to keep the content in view still.
     const collapse = () => {

@@ -4,11 +4,9 @@ import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { QuoteNoticeProvider } from "@/components/QuoteCta";
 import { ScrollReveal } from "@/components/ScrollReveal";
-import { SmoothScroll } from "@/components/SmoothScroll";
 import { site } from "@/config/site";
 import { themeBootstrap } from "@/lib/theme";
 import { sitePathUrl } from "@/lib/deployment";
-import "lenis/dist/lenis.css";
 import "./globals.css";
 
 const manrope = Manrope({
@@ -73,7 +71,6 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           </main>
           <Footer />
           <ScrollReveal />
-          <SmoothScroll />
         </QuoteNoticeProvider>
       </body>
     </html>
