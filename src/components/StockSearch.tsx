@@ -10,7 +10,7 @@ import { SearchIcon } from "./icons";
 import { cn } from "./ui";
 
 const fieldClass =
-  "h-12 w-full rounded-xl border border-theme-control-line bg-theme-surface px-4 text-[15px] text-theme-ink outline-none transition focus:border-theme-ink focus-visible:ring-3 focus-visible:ring-brand-yellow";
+  "h-12 w-full rounded-xl border border-theme-control-line bg-theme-surface px-4 text-[15px] max-sm:px-3 max-sm:text-sm text-theme-ink outline-none transition focus:border-theme-ink focus-visible:ring-3 focus-visible:ring-brand-yellow";
 
 /** Hero search: budget (total or monthly), make and model, with a live match count. */
 export function StockSearch({ className }: { className?: string }) {
@@ -68,9 +68,9 @@ export function StockSearch({ className }: { className?: string }) {
         </Link>
       </div>
 
-      <div className="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-[1fr_1fr_1fr_auto] lg:items-end">
+      <div className="mt-4 grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-[1fr_1fr_1fr_auto]">
         <div>
-          <label htmlFor={`${id}-budget`} className="mb-1.5 block text-sm font-semibold text-theme-body/80">
+          <label htmlFor={`${id}-budget`} className="sr-only">
             Your budget
           </label>
           <select
@@ -88,7 +88,7 @@ export function StockSearch({ className }: { className?: string }) {
           </select>
         </div>
         <div>
-          <label htmlFor={`${id}-make`} className="mb-1.5 block text-sm font-semibold text-theme-body/80">
+          <label htmlFor={`${id}-make`} className="sr-only">
             Make
           </label>
           <select id={`${id}-make`} className={fieldClass} value={make} onChange={(e) => setMake(e.target.value)}>
@@ -101,7 +101,7 @@ export function StockSearch({ className }: { className?: string }) {
           </select>
         </div>
         <div>
-          <label htmlFor={`${id}-model`} className="mb-1.5 block text-sm font-semibold text-theme-body/80">
+          <label htmlFor={`${id}-model`} className="sr-only">
             Model
           </label>
           <input
@@ -116,7 +116,7 @@ export function StockSearch({ className }: { className?: string }) {
         </div>
         <button
           type="submit"
-          className="inline-flex h-12 items-center justify-center gap-2 rounded-full bg-brand-yellow px-8 text-[15px] font-bold text-brand-navy transition hover:bg-brand-yellow-hover focus-visible:ring-3 focus-visible:ring-brand-navy focus-visible:outline-none sm:col-span-2 lg:col-span-1"
+          className="inline-flex h-12 items-center justify-center gap-2 rounded-full bg-brand-yellow px-8 text-[15px] font-bold text-brand-navy max-sm:px-3 transition hover:bg-brand-yellow-hover focus-visible:ring-3 focus-visible:ring-brand-navy focus-visible:outline-none"
         >
           <SearchIcon className="h-4 w-4" />
           Search <span aria-live="polite">({count})</span>
