@@ -41,6 +41,13 @@ export default function Home() {
         align="center"
       >
         <StockSearch className="w-[min(calc(100vw-2.5rem),62rem)] max-md:mt-5" />
+        {/* Own row under the search: a plain underlined link, not a button. */}
+        <Link
+          href="/sell-your-bike"
+          className="basis-full text-center font-bold text-white underline decoration-2 underline-offset-4 transition-colors hover:decoration-brand-yellow"
+        >
+          Sell us your bike
+        </Link>
         <TrustpilotAttribution onDark />
       </FullBleedHero>
 

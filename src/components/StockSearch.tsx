@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useId, useMemo, useState, type FormEvent } from "react";
 import { bikes } from "@/content/stock";
@@ -39,7 +38,7 @@ export function StockSearch({ className }: { className?: string }) {
       aria-label="Search bikes in stock"
       className={cn("w-full rounded-3xl bg-theme-surface p-5 text-left text-theme-ink shadow-2xl sm:p-6", className)}
     >
-      <div className="flex flex-wrap items-center justify-between gap-x-6 gap-y-3">
+      <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
         <div className="flex items-center gap-3 text-sm font-bold">
           <span className={monthly ? "text-theme-muted-50" : "text-theme-ink"}>Total Cost</span>
           <button
@@ -63,9 +62,6 @@ export function StockSearch({ className }: { className?: string }) {
           </button>
           <span className={monthly ? "text-theme-ink" : "text-theme-muted-50"}>Monthly Cost</span>
         </div>
-        <Link href="/sell-your-bike" className="text-sm font-bold text-theme-ink underline decoration-2 underline-offset-4 transition-colors hover:decoration-brand-yellow">
-          or sell us your bike
-        </Link>
       </div>
 
       <div className="mt-4 grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-[1fr_1fr_1fr_auto]">
