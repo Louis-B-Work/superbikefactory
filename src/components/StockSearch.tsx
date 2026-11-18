@@ -9,7 +9,7 @@ import { SearchIcon } from "./icons";
 import { cn } from "./ui";
 
 const fieldClass =
-  "h-12 w-full rounded-xl border border-theme-control-line bg-theme-surface px-4 text-[15px] max-sm:px-3 max-sm:text-sm text-theme-ink outline-none transition focus:border-theme-ink focus-visible:ring-3 focus-visible:ring-brand-yellow";
+  "h-12 w-full rounded-xl border border-theme-control-line bg-theme-surface px-4 text-[15px] max-sm:px-3 max-sm:text-sm max-[440px]:h-10 text-theme-ink outline-none transition focus:border-theme-ink focus-visible:ring-3 focus-visible:ring-brand-yellow";
 
 /** Hero search: budget (total or monthly), make and model, with a live match count. */
 export function StockSearch({ className }: { className?: string }) {
@@ -64,7 +64,8 @@ export function StockSearch({ className }: { className?: string }) {
         </div>
       </div>
 
-      <div className="mt-4 grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-[1fr_1fr_1fr_auto]">
+      {/* Four thin stacked rows on the smallest phones, 2x2 up to sm, one row from lg. */}
+      <div className="mt-4 grid grid-cols-2 gap-3 max-[440px]:grid-cols-1 max-[440px]:gap-2 sm:gap-4 lg:grid-cols-[1fr_1fr_1fr_auto]">
         <div>
           <label htmlFor={`${id}-budget`} className="sr-only">
             Your budget
@@ -112,7 +113,7 @@ export function StockSearch({ className }: { className?: string }) {
         </div>
         <button
           type="submit"
-          className="inline-flex h-12 items-center justify-center gap-2 rounded-full bg-brand-yellow px-8 text-[15px] font-bold text-brand-navy max-sm:px-3 transition hover:bg-brand-yellow-hover focus-visible:ring-3 focus-visible:ring-brand-navy focus-visible:outline-none"
+          className="inline-flex h-12 max-[440px]:h-10 items-center justify-center gap-2 rounded-full bg-brand-yellow px-8 text-[15px] font-bold text-brand-navy max-sm:px-3 transition hover:bg-brand-yellow-hover focus-visible:ring-3 focus-visible:ring-brand-navy focus-visible:outline-none"
         >
           <SearchIcon className="h-4 w-4" />
           Search <span aria-live="polite">({count})</span>
