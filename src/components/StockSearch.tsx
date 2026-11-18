@@ -36,10 +36,10 @@ export function StockSearch({ className }: { className?: string }) {
     <form
       onSubmit={onSubmit}
       aria-label="Search bikes in stock"
-      className={cn("w-full rounded-3xl bg-theme-surface p-5 text-left text-theme-ink shadow-2xl sm:p-6", className)}
+      className={cn("w-full rounded-3xl bg-theme-surface p-4 text-left text-theme-ink shadow-2xl sm:p-6", className)}
     >
       <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
-        <div className="flex items-center gap-3 text-sm font-bold">
+        <div className="flex items-center gap-2 text-[13px] font-bold whitespace-nowrap sm:gap-3 sm:text-sm">
           <span className={monthly ? "text-theme-muted-50" : "text-theme-ink"}>Total Cost</span>
           <button
             type="button"
